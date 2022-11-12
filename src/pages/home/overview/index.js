@@ -21,14 +21,14 @@ const items = [
         task: 35,
     },
     {
-        title: "Total Employees",
+        title: "Complated Task",
         icon: <IconMutiSelect></IconMutiSelect>,
         color: "#E391EA",
         data: "2.3016",
         task: 35,
     },
     {
-        title: "Total Employees",
+        title: "Incompleted Task",
         icon: <IconClose></IconClose>,
         color: "#6C5DD3",
         data: "2.3016",
@@ -38,7 +38,7 @@ const items = [
 
 const Overview = () => {
     return (
-        <div className="flex justify-start item-center gap-5 w-full">
+        <div className="flex justify-start item-center gap-5 w-full mb-6">
             {items.map((item) => (
                 <Item
                     icon={item.icon}
