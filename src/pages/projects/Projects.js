@@ -1,12 +1,11 @@
 import MainLayout from "../../layouts/MainLayout";
-import Overview from "./overview";
 
-const Home = () => {
+const Projects = () => {
     return (
         <MainLayout>
-            <Overview></Overview>
+            <h1>Project page</h1>
         </MainLayout>
     );
 };
 
-export default Home;
+export default Projects;

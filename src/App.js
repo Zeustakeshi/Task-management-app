@@ -4,17 +4,20 @@ import { AuthProvider } from "./context/AuthProvider";
 
 const SignInPage = lazy(() => import("./pages/auth/SignInPage"));
 const Home = lazy(() => import("./pages/home/Home"));
+const Projects = lazy(() => import("./pages/projects/Projects"));
 
 function App() {
     return (
         <div className="App">
-            <AuthProvider>
-                <Suspense fallback={<></>}></Suspense>
-                <Routes>
-                    <Route path="/sign-in" element={<SignInPage />} />
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </AuthProvider>
+            <Suspense fallback={<></>}>
+                <AuthProvider>
+                    <Routes>
+                        <Route path="/sign-in" element={<SignInPage />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects" element={<Projects />} />
+                    </Routes>
+                </AuthProvider>
+            </Suspense>
         </div>
     );
 }
