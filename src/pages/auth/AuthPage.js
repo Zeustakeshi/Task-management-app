@@ -5,20 +5,8 @@ import iconFb from "../../assets/imgs/auth/icon_fb.svg";
 import iconGG from "../../assets/imgs/auth/icon_google.svg";
 import { auth, ggProvider } from "../../firebase/firebase-config";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthProvider";
 
 const AuthPage = ({ children }) => {
-    const navigate = useNavigate();
-    const { userInfo } = useAuth();
-
-    useEffect(() => {
-        if (userInfo?.uid) {
-            navigate("/");
-        }
-    }, [userInfo]);
-
     const handleLoginWithGoogle = async () => {
         try {
             const data = await signInWithPopup(auth, ggProvider);

@@ -8,7 +8,7 @@ const Projects = lazy(() => import("./pages/projects/Projects"));
 
 function App() {
     return (
-        <div className="App">
+        <div className="App overflow-hidden relative">
             <Suspense fallback={<></>}>
                 <AuthProvider>
                     <Routes>

@@ -35,7 +35,7 @@ const items = [
 
 const Sidebar = () => {
     return (
-        <ul className="py-10 bg-white flex flex-col justify-start items-start min-w-[250px] max-w-[250px]  min-h-screen">
+        <ul className="fixed top-[78px] left-0 py-10 bg-white flex flex-col justify-start items-start min-w-[250px] max-w-[250px] -mb-[5000px] pb-[5000px]">
             {items.map((item) => {
                 return (
                     <li key={item.title} className="w-full">

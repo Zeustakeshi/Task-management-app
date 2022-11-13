@@ -1,14 +1,17 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase-config";
 
 const AuthContext = createContext();
 const AuthProvider = (props) => {
     const [userInfo, setUserInfo] = useState({});
+    const navigate = useNavigate();
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             setUserInfo(user);
-            console.log(user);
+            if (user) navigate("/");
+            else navigate("/sign-in");
         });
     }, []);
     const values = { userInfo, setUserInfo };
