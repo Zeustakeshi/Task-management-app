@@ -18,7 +18,6 @@ const PenddingProject = () => {
 
 const Item = ({ title, employees, deathLine, currTime }) => {
     const pers = deathLine - (currTime / deathLine) * 100;
-    console.log(pers);
     return (
         <div className="bg-white rounded-lg p-4">
             <h4 className="text-[13px] font-medium mb-3">{title}</h4>
