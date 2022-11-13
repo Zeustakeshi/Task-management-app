@@ -3,15 +3,29 @@ import imgAuth from "../../assets/imgs/auth/auth.svg";
 import logo from "../../assets/imgs/logo.svg";
 import iconFb from "../../assets/imgs/auth/icon_fb.svg";
 import iconGG from "../../assets/imgs/auth/icon_google.svg";
-import { auth, ggProvider } from "../../firebase/firebase-config";
+import { auth, db, ggProvider } from "../../firebase/firebase-config";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { addDoc, doc, setDoc } from "firebase/firestore";
 
 const AuthPage = ({ children }) => {
     const handleLoginWithGoogle = async () => {
         try {
             const data = await signInWithPopup(auth, ggProvider);
-            const isNewUser = data._tokenResponse.isNewUser;
-            const user = data.user;
+
+            if (data._tokenResponse.isNewUser) {
+                await setDoc(doc(db, "users", data.user.uid), {
+                    info: {
+                        name: data._tokenResponse.fullName,
+                        id: data.user.uid,
+                        avatar: data._tokenResponse.photoUrl,
+                        email: data._tokenResponse.email,
+                    },
+                    todoList: [],
+                    notifications: { new: [], viewed: [] },
+                    tasks: { complete: [], inComplete: [] },
+                    projects: [],
+                });
+            }
         } catch (error) {
             console.log(error);
         }

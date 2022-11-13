@@ -4,8 +4,6 @@ import IconArrowDown from "../../components/icons/IconArrowDown";
 import Dropdown from "../../components/Dropdown/Dropdown";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase-config";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 
 const Profile = () => {
     const { userInfo } = useAuth();

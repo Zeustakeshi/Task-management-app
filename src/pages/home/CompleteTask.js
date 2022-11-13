@@ -1,7 +1,7 @@
 import IconPlay from "../../components/icons/IconPlay";
 import TaskInfo from "./TaskInfo";
 
-const CompleteTask = ({ data = 62 }) => {
+const CompleteTask = ({ data = 68 }) => {
     return (
         <div className="rounded-lg bg-white max-w-[270px] py-4 px-5 min-w-[270px]">
             <h3 className="mb-10 text-base font-medium">
